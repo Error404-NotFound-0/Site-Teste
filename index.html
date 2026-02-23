@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clínica Vitalle | Saúde e Bem-estar</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            --medical-blue: #2a9d8f;
+            --dark-blue: #264653;
+            --light-bg: #f8f9fa;
+            --white: #ffffff;
+        }
+
+        /* Reset e Base */
+        body { 
+            font-family: 'Montserrat', sans-serif; 
+            margin: 0; 
+            color: #444; 
+            background: var(--white); 
+            scroll-behavior: smooth; 
+            overflow-x: hidden;
+        }
+
+        /* Menu de Navegação */
+        nav { 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center; 
+            padding: 15px 8%; 
+            background: rgba(255, 255, 255, 0.95); 
+            box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+            position: sticky; 
+            top: 0; 
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo { 
+            font-weight: bold; 
+            font-size: 1.6rem; 
+            color: var(--medical-blue); 
+            display: flex; 
+            align-items: center; 
+            gap: 10px;
+            text-decoration: none;
+        }
+
+        /* Banner Principal (Hero) */
+        .hero { 
+            background: linear-gradient(rgba(255,255,255,0.7), rgba(255,255,255,0.7)), 
+                        url('https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=1453&auto=format&fit=crop');
+            background-size: cover; 
+            background-position: center;
+            padding: 140px 8%; 
+            text-align: left;
+        }
+        
+        .hero h1 { 
+            font-size: 3.5rem; 
+            color: var(--dark-blue); 
+            max-width: 700px; 
+            margin-bottom: 20px; 
+            line-height: 1.1; 
+        }
+
+        /* Botão Global */
+        .btn-agendar { 
+            display: inline-block; 
+            background: var(--medical-blue); 
+            color: white; 
+            padding: 18px 40px; 
+            text-decoration: none; 
+            border-radius: 50px; 
+            font-weight: bold;
+            box-shadow: 0 10px 20px rgba(42, 157, 143, 0.2); 
+            transition: all 0.3s ease;
+        }
+        
+        .btn-agendar:hover { 
+            background: var(--dark-blue); 
+            transform: translateY(-3px); 
+            box-shadow: 0 15px 25px rgba(0,0,0,0.1); 
+        }
+
+        /* Seção de Serviços */
+        .servicos { 
+            padding: 100px 8%; 
+            text-align: center; 
+            background: var(--light-bg); 
+        }
+
+        .grid-servicos { 
+            display: grid; 
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); 
+            gap: 30px; 
+            margin-top: 60px; 
+        }
+
+        /* Cards Estilizados */
+        .card-servico { 
+            background: white; 
+            padding: 50px 30px; 
+            border-radius: 20px; 
+            transition: all 0.4s ease; 
+            border: 1px solid rgba(0,0,0,0.05);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .icon-box {
+            width: 80px; 
+            height: 80px; 
+            background: rgba(42, 157, 143, 0.1);
+            color: var(--medical-blue); 
+            border-radius: 50%; 
+            display: flex;
+            align-items: center; 
+            justify-content: center; 
+            font-size: 2rem;
+            margin-bottom: 20px; 
+            transition: 0.3s;
+        }
+
+        .card-servico:hover { 
+            transform: translateY(-15px); 
+            box-shadow: 0 20px 40px rgba(0,0,0,0.08); 
+        }
+        
+        .card-servico:hover .icon-box { 
+            background: var(--medical-blue); 
+            color: var(--white); 
+        }
+
+        .link-saiba-mais {
+            margin-top: 15px;
+            color: var(--medical-blue);
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+
+        /* Sistema de Animação de Scroll */
+        .hidden {
+            opacity: 0;
+            filter: blur(5px);
+            transform: translateY(40px);
+            transition: all 1s ease-out;
+        }
+
+        .show {
+            opacity: 1;
+            filter: blur(0);
+            transform: translateY(0);
+        }
+
+        /* Delays para efeito cascata */
+        .card-servico:nth-child(2) { transition-delay: 200ms; }
+        .card-servico:nth-child(3) { transition-delay: 400ms; }
+
+        footer { 
+            padding: 60px 8%; 
+            text-align: center; 
+            background: var(--dark-blue); 
+            color: white; 
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.2rem; }
+            nav { padding: 15px 5%; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <a href="index.html" class="logo"><i class="fas fa-file-medical"></i> Vitalle</a>
+        <a href="https://wa.me/5511999999999" class="btn-agendar" style="padding: 10px 20px; font-size: 0.8rem;">FALE CONOSCO</a>
+    </nav>
+
+    <header class="hero">
+        <div class="hidden">
+            <h1>Cuidar de você.<br>Esse é o nosso plano.</h1>
+            <p style="font-size: 1.2rem; max-width: 500px; margin-bottom: 30px;">Tecnologia médica de ponta e atendimento humanizado para sua família.</p>
+            <a href="https://wa.me/5511999999999" class="btn-agendar">AGENDAR CONSULTA</a>
+        </div>
+    </header>
+
+    <section class="servicos">
+        <h2 class="hidden" style="font-size: 2.5rem; color: var(--dark-blue);">Nossas Especialidades</h2>
+        <p class="hidden">Excelência médica em cada detalhe</p>
+        
+        <div class="grid-servicos">
+            <div class="card-servico hidden">
+                <div class="icon-box"><i class="fas fa-heartbeat"></i></div>
+                <h3>Cardiologia</h3>
+                <p>Monitoramento avançado e prevenção de doenças do coração.</p>
+                <a href="#" class="link-saiba-mais">Saiba mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="card-servico hidden">
+                <div class="icon-box"><i class="fas fa-baby"></i></div>
+                <h3>Pediatria</h3>
+                <p>Cuidado especializado e carinhoso para o futuro dos pequenos.</p>
+                <a href="pediatria.html" class="link-saiba-mais">Saiba mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+            
+            <div class="card-servico hidden">
+                <div class="icon-box"><i class="fas fa-bone"></i></div>
+                <h3>Ortopedia</h3>
+                <p>Tratamentos modernos para garantir sua mobilidade e vida ativa.</p>
+                <a href="#" class="link-saiba-mais">Saiba mais <i class="fas fa-arrow-right"></i></a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <i class="fas fa-hospital-user" style="font-size: 2rem; margin-bottom: 20px;"></i>
+        <p>Av. da Esperança, 500 - Edifício Saúde | (11) 98888-7777</p>
+        <p style="opacity: 0.6;">&copy; 2026 Clínica Vitalle - Todos os direitos reservados.</p>
+    </footer>
+
+    <script>
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach((entry) => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('show');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        const hiddenElements = document.querySelectorAll('.hidden');
+        hiddenElements.forEach((el) => observer.observe(el));
+    </script>
+
+</body>
+</html>
